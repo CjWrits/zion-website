@@ -61,8 +61,8 @@ export default function Team() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.3]);
 
   return (
-    <section id="team" className="py-32 bg-slate-900/50 backdrop-blur-sm" ref={ref}>
-      <motion.div className="max-w-7xl mx-auto px-9" style={{ opacity }}>
+    <section id="team" className="py-16 md:py-32 bg-slate-900/50 backdrop-blur-sm" ref={ref}>
+      <motion.div className="max-w-7xl mx-auto px-4 md:px-9" style={{ opacity }}>
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -71,7 +71,7 @@ export default function Team() {
           style={{ y }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Meet Our Team
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -80,7 +80,7 @@ export default function Team() {
         </motion.div>
 
         {/* Team member cards */}
-        <div className="grid grid-cols-6 md:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
           {team.map((member, index) => (
             <motion.div
               key={`${member.name}-${index}`}
@@ -89,10 +89,10 @@ export default function Team() {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ scale: 1.05, y: -10 }}
               style={{ y: useTransform(scrollYProgress, [0, 1], [(index % 3) * 30, -(index % 3) * 30]) }}
-              className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl text-center border border-slate-700"
+              className="bg-slate-800/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl text-center border border-slate-700"
             >
               {/* Profile image */}
-              <div className="w-32 h-32 bg-slate-700 rounded-full mx-auto mb-5 overflow-hidden">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-slate-700 rounded-full mx-auto mb-4 md:mb-5 overflow-hidden">
                 {member.image ? (
                   <Image
                     src={member.image}
@@ -104,10 +104,10 @@ export default function Team() {
                 ) : null}
               </div>
               {/* Member details */}
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
                 {member.name}
               </h3>
-              <p className="text-base text-gray-300 mb-1">{member.role}</p>
+              <p className="text-sm sm:text-base text-gray-300 mb-1">{member.role}</p>
               <p className="text-sm text-gray-400">{member.institution}</p>
             </motion.div>
           ))}

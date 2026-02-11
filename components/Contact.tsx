@@ -39,8 +39,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-slate-900/50 backdrop-blur-sm" ref={ref}>
-      <motion.div className="max-w-4xl mx-auto px-6" style={{ opacity }}>
+    <section id="contact" className="py-16 md:py-32 bg-slate-900/50 backdrop-blur-sm" ref={ref}>
+      <motion.div className="max-w-4xl mx-auto px-4 md:px-6" style={{ opacity }}>
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -49,10 +49,10 @@ export default function Contact() {
           style={{ y }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Get In Touch
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-lg md:text-xl text-gray-300">
             Have questions? We'd love to hear from you.
           </p>
         </motion.div>
@@ -75,7 +75,7 @@ export default function Contact() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
-              className="w-full px-6 py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:border-slate-500 transition-colors text-white placeholder-gray-400"
+              className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:border-slate-500 transition-colors text-white placeholder-gray-400"
             />
           </div>
           <div>
@@ -86,7 +86,7 @@ export default function Contact() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
-              className="w-full px-6 py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:border-slate-500 transition-colors text-white placeholder-gray-400"
+              className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:border-slate-500 transition-colors text-white placeholder-gray-400"
             />
           </div>
           <div>
@@ -97,14 +97,14 @@ export default function Contact() {
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               required
               rows={6}
-              className="w-full px-6 py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:border-slate-500 transition-colors resize-none text-white placeholder-gray-400"
+              className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:border-slate-500 transition-colors resize-none text-white placeholder-gray-400"
             />
           </div>
           <motion.button
             type="submit"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full px-8 py-4 bg-white text-gray-900 rounded-xl hover:bg-gray-100 transition-colors"
+            className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-900 rounded-xl hover:bg-gray-100 transition-colors"
           >
             {submitted ? 'Message Sent!' : 'Send Message'}
           </motion.button>
@@ -116,7 +116,7 @@ export default function Contact() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.4, duration: 0.8 }}
           style={{ y: useTransform(scrollYProgress, [0, 1], [20, -20]) }}
-          className="mt-16 text-center text-gray-300"
+          className="mt-12 md:mt-16 text-center text-gray-300 text-sm md:text-base"
         >
           <p className="mb-4">© 2026 Zion Community. All rights reserved.</p>
           <p className="italic">"For the people, by the people, with the people"</p>

@@ -14,17 +14,17 @@ export default function About() {
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
 
   return (
-    <section id="about" className="py-32 bg-slate-900/50 backdrop-blur-sm" ref={ref}>
-      <motion.div className="max-w-7xl mx-auto px-6" style={{ opacity }}>
+    <section id="about" className="py-16 md:py-32 bg-slate-900/50 backdrop-blur-sm" ref={ref}>
+      <motion.div className="max-w-7xl mx-auto px-4 md:px-6" style={{ opacity }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="grid md:grid-cols-2 gap-16 items-center"
+          className="grid md:grid-cols-2 gap-8 md:gap-16 items-center"
         >
           {/* About text content */}
           <motion.div style={{ y }}>
-            <h2 className="text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6">
               About Zion
             </h2>
             <p className="text-lg text-gray-200 mb-6 leading-relaxed">
@@ -48,7 +48,7 @@ export default function About() {
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
             style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 50]) }}
-            className="bg-slate-800/50 backdrop-blur-sm p-12 rounded-3xl border border-slate-700"
+            className="bg-slate-800/50 backdrop-blur-sm p-6 md:p-12 rounded-3xl border border-slate-700"
           >
             <div className="space-y-8">
               <div>

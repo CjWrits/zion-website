@@ -22,7 +22,7 @@ export default function Navigation() {
         scrolled ? 'bg-slate-900/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -35,7 +35,7 @@ export default function Navigation() {
         </motion.div>
 
         {/* Navigation links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="flex items-center gap-4 md:gap-8 text-sm md:text-base">
           {['About', 'Focus', 'Team', 'Community', 'Contact'].map((item) => (
             <motion.a
               key={item}

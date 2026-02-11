@@ -15,8 +15,8 @@ export default function Community() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.4]);
 
   return (
-    <section id="community" className="py-32 bg-gray-900 text-white" ref={ref}>
-      <motion.div className="max-w-7xl mx-auto px-6" style={{ opacity }}>
+    <section id="community" className="py-16 md:py-32 bg-gray-900 text-white" ref={ref}>
+      <motion.div className="max-w-7xl mx-auto px-4 md:px-6" style={{ opacity }}>
         {/* Community header and CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -25,7 +25,7 @@ export default function Community() {
           style={{ y }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Join Our Community
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-12">
@@ -36,7 +36,7 @@ export default function Community() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             style={{ scale }}
-            className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl max-w-md mx-auto"
+            className="bg-white/10 backdrop-blur-lg p-6 md:p-8 rounded-2xl max-w-md mx-auto"
           >
             <p className="text-gray-300 mb-6">
               Join us to develop your leadership skills, build confidence, and connect with like-minded individuals
@@ -45,7 +45,7 @@ export default function Community() {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-gray-100 transition-colors"
+              className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-900 rounded-full hover:bg-gray-100 transition-colors"
             >
               Get Started
             </motion.a>
@@ -58,7 +58,7 @@ export default function Community() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.8 }}
           style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 50]) }}
-          className="grid md:grid-cols-3 gap-8 mt-20"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-20"
         >
           <div className="text-center">
             <h3 className="text-4xl font-bold mb-2">20+</h3>

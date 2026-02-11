@@ -46,21 +46,21 @@ export default function Hero() {
   }, [phraseIndex]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <motion.div className="max-w-7xl mx-auto px-6 py-32 text-center" style={{ y, opacity }}>
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
+      <motion.div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-32 text-center" style={{ y, opacity }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           {/* Main title */}
-          <h1 className="text-7xl md:text-9xl font-bold text-white mb-6">
+          <h1 className="text-6xl sm:text-7xl md:text-9xl font-bold text-white mb-6">
             ZION
           </h1>
 
           {/* Subtitle */}
           <motion.p
-            className="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -83,13 +83,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center px-4"
           >
             <motion.a
               href="#about"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-gray-100 transition-colors"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-900 rounded-full hover:bg-gray-100 transition-colors text-center"
             >
               Learn More
             </motion.a>
@@ -97,7 +97,7 @@ export default function Hero() {
               href="#community"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors"
+              className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center"
             >
               Join Community
             </motion.a>

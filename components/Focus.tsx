@@ -38,8 +38,8 @@ export default function Focus() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.5]);
 
   return (
-    <section id="focus" className="py-32 bg-slate-800/30 backdrop-blur-sm" ref={ref}>
-      <motion.div className="max-w-7xl mx-auto px-6" style={{ opacity }}>
+    <section id="focus" className="py-16 md:py-32 bg-slate-800/30 backdrop-blur-sm" ref={ref}>
+      <motion.div className="max-w-7xl mx-auto px-4 md:px-6" style={{ opacity }}>
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,7 +48,7 @@ export default function Focus() {
           style={{ y }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             What We Focus On
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -57,7 +57,7 @@ export default function Focus() {
         </motion.div>
 
         {/* Focus cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {focuses.map((focus, index) => (
             <motion.div
               key={focus.title}

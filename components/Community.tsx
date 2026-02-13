@@ -42,7 +42,9 @@ export default function Community() {
               Join us to develop your leadership skills, build confidence, and connect with like-minded individuals
             </p>
             <motion.a
-              href="#contact"
+              href="https://forms.gle/2vQbJeAMZz2bkuZo6"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-900 rounded-full hover:bg-gray-100 transition-colors"

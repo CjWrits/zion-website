@@ -20,7 +20,7 @@ const team = [
     role: 'Community Manager',
     institution: 'BBDITM',
     year: 'Second Year',
-    image: '/parth.jpg',
+    image: '/par.jpeg',
   },
   {
     name: 'Prashansa Doharey',
@@ -41,7 +41,7 @@ const team = [
     role: 'Manager',
     institution: 'BVIMR (IPU)',
     year: 'Second Year',
-    image: '/saiyam.jpeg',
+    image: '/sai.jpeg',
   },
   {
     name: 'Jlaj Jain',
@@ -80,7 +80,7 @@ export default function Team() {
         </motion.div>
 
         {/* Team member cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div className="md:grid md:grid-cols-3 lg:grid-cols-6 gap-5 hidden">
           {team.map((member, index) => (
             <motion.div
               key={`${member.name}-${index}`}
@@ -111,6 +111,39 @@ export default function Team() {
               <p className="text-sm text-gray-400">{member.institution}</p>
             </motion.div>
           ))}
+        </div>
+
+        {/* Mobile swipeable cards */}
+        <div className="md:hidden overflow-x-auto scrollbar-hide">
+          <div className="flex gap-4 pb-4" style={{ width: 'max-content' }}>
+            {team.map((member, index) => (
+              <motion.div
+                key={`${member.name}-${index}`}
+                initial={{ opacity: 0, x: 50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl text-center border border-slate-700 w-64 flex-shrink-0"
+              >
+                <div className="w-32 h-32 bg-slate-700 rounded-full mx-auto mb-4 overflow-hidden">
+                  {member.image ? (
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : null}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-base text-gray-300 mb-1">{member.role}</p>
+                <p className="text-sm text-gray-400">{member.institution}</p>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-center text-gray-400 text-sm mt-4">← Swipe to see more →</p>
         </div>
       </motion.div>
     </section>

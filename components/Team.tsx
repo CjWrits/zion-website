@@ -425,7 +425,7 @@ export default function Team() {
                   >
                     {member.role}
                   </p>
-                  <p className="text-gray-400 text-xs md:text-sm">{member.institution}</p>
+                  <p className="text-gray-400 text-xs md:text-sm">{}</p>
                 </div>
               </div>
             </motion.div>

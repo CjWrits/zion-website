@@ -32,10 +32,8 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-1"
           >
-            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-              <span className="text-gray-900 font-bold text-xl">Z</span>
-            </div>
-            <span className="text-2xl font-bold text-white">ION</span>
+            
+            <span className="text-2xl font-bold text-white">ZION</span>
           </motion.div>
 
           {/* Desktop Navigation */}

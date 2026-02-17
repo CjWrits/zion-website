@@ -38,10 +38,8 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-gray-900 font-bold text-2xl">Z</span>
-              </div>
-              <span className="text-3xl font-bold">ION</span>
+              
+              <span className="text-3xl font-bold">ZION</span>
             </div>
             <p className="text-gray-400 italic">
               "For the people, by the people, with the people"

@@ -391,7 +391,7 @@ export default function Team() {
                     />
                     <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden ring-4 ring-offset-4 ring-offset-slate-900 shadow-2xl"
                       style={{ 
-                        ringColor: member.galaxyColor,
+                       
                         boxShadow: `0 0 15px ${member.galaxyColor}40, 0 0 30px ${member.galaxyColor}20`,
                       }}
                     >

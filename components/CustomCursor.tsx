@@ -19,7 +19,7 @@ export default function CustomCursor() {
   }, []);
 
   return (
-    <div ref={cursorRef} className="hidden md:block pointer-events-none fixed z-50 -rotate-45">
+    <div ref={cursorRef} className="hidden md:block pointer-events-none fixed z-[9999] -rotate-45">
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
         {/* Main body */}
         <path d="M24 4L28 24L24 42L20 24L24 4Z" fill="url(#body)" />

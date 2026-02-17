@@ -38,7 +38,14 @@ export default function Focus() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.5]);
 
   return (
-    <section id="focus" className="py-16 md:py-32 bg-slate-800/30 backdrop-blur-sm" ref={ref}>
+    <section id="focus" className="py-16 md:py-32 relative" ref={ref}>
+      {/* Center divider line with design */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center gap-2">
+        <div className="w-2 h-2 rounded-full bg-white/60" />
+        <div className="w-20 h-0.5 bg-gradient-to-r from-white/80 via-white/40 to-white/80" />
+        <div className="w-2 h-2 rounded-full bg-white/60" />
+      </div>
+      
       <motion.div className="max-w-7xl mx-auto px-4 md:px-6" style={{ opacity }}>
         {/* Section header */}
         <motion.div

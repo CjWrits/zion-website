@@ -10,13 +10,21 @@ export default function DiscordBubble() {
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#5865F2] rounded-full flex items-center justify-center shadow-lg group"
       aria-label="Join our Discord"
+      initial={{ x: 100, opacity: 0 }}
       animate={{
+        x: 0,
+        opacity: 1,
         y: [0, -10, 0],
       }}
       transition={{
-        duration: 2,
-        repeat: Infinity,
-        ease: "easeInOut",
+        x: { duration: 0.6, ease: 'easeOut' },
+        opacity: { duration: 0.6 },
+        y: {
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.6,
+        },
       }}
       whileHover={{ scale: 1.1, rotate: 5 }}
       whileTap={{ scale: 0.95 }}

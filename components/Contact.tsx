@@ -39,7 +39,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-32 bg-slate-900/50 backdrop-blur-sm" ref={ref}>
+    <section id="contact" className="py-16 md:py-32 " ref={ref}>
       <motion.div className="max-w-4xl mx-auto px-4 md:px-6" style={{ opacity }}>
         {/* Section header */}
         <motion.div

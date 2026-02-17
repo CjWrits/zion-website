@@ -1,10 +1,20 @@
 // Root layout component for the Next.js application
-import DiscordBubble from '@/components/DiscordBubble';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
+import DiscordBubble from '@/components/DiscordBubble';
 
 // Configure Inter font with Latin subset
 const inter = Inter({ subsets: ['latin'] });
+
+// Metadata for the application
+export const metadata: Metadata = {
+  title: 'Zion Community',
+  description: 'The cosmic visionaries behind Zion community',
+  icons: {
+    icon: '/logo.ico',
+  },
+};
 
 // Root layout wrapper that applies to all pages
 export default function RootLayout({
@@ -14,13 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/logo.ico" />
-      </head>
       <body className={inter.className}>
         {children}
-        {/* Discord community link bubble */}
-        <DiscordBubble/>
+    <DiscordBubble/>
       </body>
     </html>
   );

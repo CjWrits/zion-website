@@ -13,11 +13,13 @@
     "@tanstack/react-query": "^5.17.19",
     "ethers": "^6.9.0",
     "framer-motion": "^10.16.16",
+    "gsap": "^3.14.2",
     "next": "^14.0.4",
     "nodemailer": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "resend": "^6.9.1",
+    "three": "^0.182.0",
     "viem": "^2.7.6",
     "wagmi": "^2.5.7"
   },

@@ -2,12 +2,14 @@
 
 // Hero section with animated typewriter effect
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
-  const phrases = ['For the people', 'By the people', 'With the people'];
+  const phrases = ['For the people', 'By the people', 'With the people'] as const;
   const [phraseIndex, setPhraseIndex] = useState(0);
+  const charIndexRef = useRef(0);
+  const isDeletingRef = useRef(false);
   
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
@@ -15,32 +17,30 @@ export default function Hero() {
 
   // Typewriter effect implementation
   useEffect(() => {
-    let charIndex = 0;
-    let isDeleting = false;
-    
     const interval = setInterval(() => {
       const currentPhrase = phrases[phraseIndex];
       
-      if (!isDeleting) {
-        // Typing phase
-        setDisplayText(currentPhrase.slice(0, charIndex + 1));
-        charIndex++;
+      if (!isDeletingRef.current) {
+        // Typing phase - using slice on trusted static content
+        const safeText = String(currentPhrase).slice(0, charIndexRef.current + 1);
+        setDisplayText(safeText);
+        charIndexRef.current++;
         
-        if (charIndex === currentPhrase.length) {
-          isDeleting = true;
-          setTimeout(() => {}, 1500);
+        if (charIndexRef.current === currentPhrase.length) {
+          isDeletingRef.current = true;
         }
       } else {
         // Deleting phase
-        setDisplayText(currentPhrase.slice(0, charIndex));
-        charIndex--;
+        const safeText = String(currentPhrase).slice(0, charIndexRef.current);
+        setDisplayText(safeText);
+        charIndexRef.current--;
         
-        if (charIndex === 0) {
-          isDeleting = false;
+        if (charIndexRef.current === 0) {
+          isDeletingRef.current = false;
           setPhraseIndex((prev) => (prev + 1) % phrases.length);
         }
       }
-    }, isDeleting ? 50 : 100);
+    }, isDeletingRef.current ? 50 : 100);
 
     return () => clearInterval(interval);
   }, [phraseIndex]);

@@ -13,6 +13,7 @@ export default function Community() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.9]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.4]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
     <section id="community" className="py-16 md:py-32 relative" ref={ref}>
@@ -66,7 +67,7 @@ export default function Community() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.8 }}
-          style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 50]) }}
+          style={{ y: y2 }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-20"
         >
           <div className="text-center">

@@ -229,8 +229,8 @@ export default function Team() {
                   className="particle absolute w-2 h-2 rounded-full opacity-0"
                   style={{
                     background: member.galaxyColor,
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
+                    left: `${((i * 37.3 + index * 17.1) % 100)}%`,
+                    top: `${((i * 53.7 + index * 23.9) % 100)}%`,
                     boxShadow: `0 0 20px ${member.galaxyColor}, 0 0 40px ${member.galaxyColor}`,
                   }}
                 />

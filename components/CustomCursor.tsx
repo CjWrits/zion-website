@@ -10,8 +10,7 @@ export default function CustomCursor() {
     if (!cursor) return;
 
     const updateMousePosition = (e: MouseEvent) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     };
 
     window.addEventListener('mousemove', updateMousePosition, { passive: true });

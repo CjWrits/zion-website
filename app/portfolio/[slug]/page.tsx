@@ -13,6 +13,8 @@ const portfolioData: Record<string, any> = {
   'rahul-wakhale': {
     name: 'Rahul Wakhale',
     role: 'Co-Founder',
+    institution: 'IIT Jodhpur',
+    year: 'AI & Data Science Student',
     image: '/rhul.jpeg',
     galaxyColor: '#3B82F6',
     bio: 'I am an AI and Data Science student at IIT Jodhpur with a technical background spanning web3, AI, and applied engineering systems. I have six years of hands-on experience working in the web3 ecosystem, where I contributed to product development, decentralized applications, and emerging blockchain-based solutions. Currently, my focus is on artificial intelligence, data-driven systems, and innovation-oriented problem solving. I have worked across multiple domains including software development, machine learning, robotics, and IoT, with an emphasis on building practical, deployable solutions rather than purely theoretical work. I operate as a digital nomad and am currently based in India.',
@@ -31,6 +33,8 @@ const portfolioData: Record<string, any> = {
   'ayush-shrivastava': {
     name: 'Ayush Shrivastava',
     role: 'Community Manager',
+    institution: 'BBDITM',
+    year: 'Second Year',
     image: '/par.jpeg',
     galaxyColor: '#8B5CF6',
     bio: 'I am a passionate developer with a strong interest in both software and hardware technologies. I have experience building responsive websites, creating practical tech solutions, and continuously learning modern tools like the MERN stack. Along with coding, I work on electronics projects using Arduino, sensors, and basic circuits. I am also a video editor with a creative mindset. For the two years, I have worked with an NGO, counseling and mentoring students to help them grow academically and personally.',
@@ -48,6 +52,8 @@ const portfolioData: Record<string, any> = {
   'prashansa-doharey': {
     name: 'Prashansa Doharey',
     role: 'Manager',
+    institution: 'Mandsaur University',
+    year: 'Second Year',
     image: '/prashansa.jpeg',
     galaxyColor: '#EC4899',
     bio: 'I am a learner focused on artificial intelligence, application development, and web development. I actively explore how modern technologies can be applied to build functional software products. My approach to coding is experimental and iterative, with an emphasis on learning through practice. I identify as a communist and bring strong ideological clarity and critical thinking into discussions and technical problem-solving. Alongside technical learning, I place importance on communication and structured argumentation.',
@@ -65,6 +71,8 @@ const portfolioData: Record<string, any> = {
   'chirag-gupta': {
     name: 'Chirag Gupta',
     role: 'Manager',
+    institution: 'BBDITM',
+    year: 'Second Year',
     image: '/cj.jpeg',
     galaxyColor: '#10B981',
     bio: 'Full-stack developer with hands-on experience building and deploying scalable web applications using the MERN stack. Strong understanding of frontend and backend development, API integration, authentication systems, and server-side deployment. Experienced in independently developing complete applications from concept to production.',
@@ -83,6 +91,8 @@ const portfolioData: Record<string, any> = {
   'saiyam-jain': {
     name: 'Saiyam Jain',
     role: 'Manager',
+    institution: 'BVIMR (IPU)',
+    year: 'Second Year',
     image: '/sai.jpeg',
     galaxyColor: '#F59E0B',
     bio: ' I am a technology-focused student with a strong interest in software development and problem solving. I actively work on learning and building technical projects while developing a solid foundation in programming and core computer science concepts. My current areas of focus include C programming, data structures and algorithms, and web development. I spend time experimenting with new ideas, implementing small to mid-scale projects, and improving my understanding of how systems work at a practical level.',
@@ -101,6 +111,8 @@ const portfolioData: Record<string, any> = {
   'jalaj-jain': {
     name: 'Jalaj Jain',
     role: 'Co-Founder',
+    institution: 'Digital Nomad',
+    year: 'Based in India',
     image: '/j.png',
     galaxyColor: '#EF4444',
     bio: 'I am a digital nomad currently based in India with eight years of experience in development and technical operations. I work full-time in development, focusing on building and managing practical systems with real-world use cases. Alongside development, I am involved in production-oriented work, including cinematography, scriptwriting, and related creative processes. This combination allows me to operate across both technical execution and production planning, contributing to projects that require coordination between engineering and creative teams.',
@@ -249,8 +261,8 @@ export default function PortfolioPage({ params }: { params: { slug: string } }) 
                 </div>
                 <h1 className="text-4xl font-bold text-white text-center mb-2">{member.name}</h1>
                 <p className="text-xl text-center mb-2" style={{ color: member.galaxyColor }}>{member.role}</p>
-                <p className="text-gray-400 text-center">{member.institution}</p>
-                <p className="text-gray-500 text-center text-sm">{member.year}</p>
+                {member.institution && <p className="text-gray-400 text-center">{member.institution}</p>}
+                {member.year && <p className="text-gray-500 text-center text-sm">{member.year}</p>}
               </div>
             </motion.div>
           </div>

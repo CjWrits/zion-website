@@ -13,6 +13,7 @@ interface Star {
 
 export default function SpaceBackground() {
   const [stars, setStars] = useState<Star[]>([]);
+  const [mounted, setMounted] = useState(false);
   const { scrollYProgress } = useScroll();
   
   // Parallax transforms for different layers
@@ -23,6 +24,7 @@ export default function SpaceBackground() {
 
   // Generate shooting stars periodically
   useEffect(() => {
+    setMounted(true);
     const generateStars = () => {
       const newStars = Array.from({ length: 50 }, (_, i) => ({
         id: i,
@@ -38,6 +40,8 @@ export default function SpaceBackground() {
     return () => clearInterval(interval);
   }, []);
 
+  if (!mounted) return null;
+
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-slate-950">
       {/* Parallax layer 1 - Slow moving stars */}
@@ -50,10 +54,10 @@ export default function SpaceBackground() {
             animate={{ scale: 1, opacity: 0.5 }}
             transition={{ duration: 1, delay: i * 0.01 }}
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `twinkle ${2 + Math.random() * 3}s infinite`,
-              animationDelay: `${Math.random() * 3}s`,
+              left: `${(i * 13.7) % 100}%`,
+              top: `${(i * 27.3) % 100}%`,
+              animation: `twinkle ${2 + (i % 3)}s infinite`,
+              animationDelay: `${(i % 3)}s`,
             }}
           />
         ))}
@@ -69,10 +73,10 @@ export default function SpaceBackground() {
             animate={{ scale: 1, opacity: 0.6 }}
             transition={{ duration: 1, delay: i * 0.01 }}
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `twinkle ${2 + Math.random() * 3}s infinite`,
-              animationDelay: `${Math.random() * 3}s`,
+              left: `${(i * 17.3) % 100}%`,
+              top: `${(i * 31.7) % 100}%`,
+              animation: `twinkle ${2.5 + (i % 3)}s infinite`,
+              animationDelay: `${(i % 3)}s`,
             }}
           />
         ))}
@@ -88,10 +92,10 @@ export default function SpaceBackground() {
             animate={{ scale: 1, opacity: 0.7 }}
             transition={{ duration: 1, delay: i * 0.01 }}
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `twinkle ${2 + Math.random() * 3}s infinite`,
-              animationDelay: `${Math.random() * 3}s`,
+              left: `${(i * 23.1) % 100}%`,
+              top: `${(i * 37.9) % 100}%`,
+              animation: `twinkle ${3 + (i % 3)}s infinite`,
+              animationDelay: `${(i % 3)}s`,
             }}
           />
         ))}

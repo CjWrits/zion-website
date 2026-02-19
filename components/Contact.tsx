@@ -10,14 +10,18 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
   
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.5]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(false);
     
     try {
       const response = await fetch('/api/send-email', {
@@ -32,9 +36,13 @@ export default function Contact() {
           setSubmitted(false);
           setFormData({ name: '', email: '', message: '' });
         }, 3000);
+      } else {
+        setError(true);
+        setTimeout(() => setError(false), 3000);
       }
-    } catch (error) {
-      console.error('Form submission error:', error);
+    } catch (err) {
+      setError(true);
+      setTimeout(() => setError(false), 3000);
     }
   };
 
@@ -62,7 +70,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.8 }}
-          style={{ y: useTransform(scrollYProgress, [0, 1], [30, -30]) }}
+          style={{ y: y2 }}
           onSubmit={handleSubmit}
           className="space-y-6"
         >
@@ -106,8 +114,11 @@ export default function Contact() {
             whileTap={{ scale: 0.98 }}
             className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-900 rounded-xl hover:bg-gray-100 transition-colors"
           >
-            {submitted ? 'Message Sent!' : 'Send Message'}
+            {submitted ? 'Message Sent!' : error ? 'Failed to Send' : 'Send Message'}
           </motion.button>
+          {error && (
+            <p className="text-red-400 text-sm text-center">Failed to send message. Please try again.</p>
+          )}
         </motion.form>
 
         {/* Footer */}
@@ -115,7 +126,7 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.4, duration: 0.8 }}
-          style={{ y: useTransform(scrollYProgress, [0, 1], [20, -20]) }}
+          style={{ y: y3 }}
           className="mt-12 md:mt-16 text-center text-gray-300 text-sm md:text-base"
         >
           <p className="mb-4">© 2026 Zion Community. All rights reserved.</p>

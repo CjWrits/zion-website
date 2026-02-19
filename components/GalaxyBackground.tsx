@@ -17,6 +17,7 @@ export default function GalaxyBackground() {
 
     const stars: { x: number; y: number; radius: number; opacity: number; speed: number }[] = [];
     const starCount = 200;
+    let animationFrameId: number;
 
     for (let i = 0; i < starCount; i++) {
       stars.push({
@@ -45,7 +46,7 @@ export default function GalaxyBackground() {
         }
       });
 
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     }
 
     animate();
@@ -59,7 +60,8 @@ export default function GalaxyBackground() {
 
     return () => {
       window.removeEventListener('resize', handleResize);
-    };
+      cancelAnimationFrame(animationFrameId);
+4000000000000000000    };
   }, []);
 
   return (

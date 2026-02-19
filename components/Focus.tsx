@@ -9,23 +9,27 @@ import { useRef } from 'react';
 const focuses = [
   {
     title: 'Team Building',
-    description: 'Learn to work effectively in teams and build lasting professional relationships',
+    description: 'Learn to work effectively in teams and build lasting professional relationships through collaborative projects and activities',
     icon: '',
+    features: ['Collaborative Projects', 'Team Workshops', 'Group Activities'],
   },
   {
     title: 'Confidence Building',
-    description: 'Overcome stage fear and develop the confidence to express yourself',
+    description: 'Overcome stage fear and develop the confidence to express yourself in front of any audience',
     icon: '',
+    features: ['Public Speaking', 'Presentation Skills', 'Self Expression'],
   },
   {
     title: 'Leadership Skills',
-    description: 'Support team leaders in making quick, effective decisions',
+    description: 'Support team leaders in making quick, effective decisions and guiding teams to success',
     icon: '',
+    features: ['Decision Making', 'Strategic Thinking', 'Team Management'],
   },
   {
     title: 'Communication',
-    description: 'Improve team communication and eliminate miscommunication barriers',
+    description: 'Improve team communication and eliminate miscommunication barriers for better collaboration',
     icon: '',
+    features: ['Active Listening', 'Clear Expression', 'Feedback Skills'],
   },
 ];
 
@@ -38,7 +42,7 @@ export default function Focus() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.5]);
 
   return (
-    <section id="focus" className="py-16 md:py-32 relative" ref={ref}>
+    <section id="focus" className="py-24 md:py-40 relative" ref={ref}>
       {/* Center divider line with design */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-white/60" />
@@ -72,16 +76,23 @@ export default function Focus() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ y: -10, scale: 1.05 }}
-              style={{ y: useTransform(scrollYProgress, [0, 1], [index * 20, -index * 20]) }}
               className="bg-slate-900/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all"
             >
-              <div className="text-5xl mb-4">{focus.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-3">
+              <div className="text-5xl mb-6">{focus.icon}</div>
+              <h3 className="text-2xl font-bold text-white mb-4">
                 {focus.title}
               </h3>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed mb-6">
                 {focus.description}
               </p>
+              <ul className="space-y-2">
+                {focus.features.map((feature, i) => (
+                  <li key={i} className="flex items-center text-sm text-gray-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mr-2" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

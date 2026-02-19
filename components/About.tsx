@@ -12,6 +12,7 @@ export default function About() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
     <section id="about" className="py-16 md:py-32 relative" ref={ref}>
@@ -54,7 +55,7 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
-            style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 50]) }}
+            style={{ y: y2 }}
             className="bg-slate-800/50 backdrop-blur-sm p-6 md:p-12 rounded-3xl border border-slate-700"
           >
             <div className="space-y-8">

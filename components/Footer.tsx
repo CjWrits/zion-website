@@ -21,7 +21,7 @@ export default function Footer() {
               delay: i * 0.2,
             }}
             style={{
-              left: `${Math.random() * 100}%`,
+              left: `${(i * 5.3) % 100}%`,
               top: '100%',
             }}
           />

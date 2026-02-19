@@ -33,10 +33,18 @@ body {
   }
 }
 
-/* Smooth scrolling for anchor links */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+
+
+section {
+  scroll-margin-top: 80px; /* Adjust to match header height */
+}
+
+#focus {
+  scroll-margin-top: 2px; /* Less margin for Focus section due to top decorative element */
+}
+
+#team {
+  scroll-margin-top: 5.px; /* Less margin for Team section due to top decorative element */
 }
 
 /* Hide scrollbar for swipeable cards */

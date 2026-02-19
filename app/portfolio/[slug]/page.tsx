@@ -131,8 +131,9 @@ const portfolioData: Record<string, any> = {
   },
 };
 
-export default function PortfolioPage({ params }: { params: { slug: string } }) {
-  const member = portfolioData[params.slug];
+export default async function PortfolioPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const member = portfolioData[slug];
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {

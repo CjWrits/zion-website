@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { use } from 'react';
 import DiscordBubble from '@/components/DiscordBubble';
 import SocialBubbles from '@/components/SocialBubbles';
 import SpotlightCursor from '@/components/SpotlightCursor';
@@ -131,14 +131,9 @@ const portfolioData: Record<string, any> = {
   },
 };
 
-export default async function PortfolioPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default function PortfolioPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   const member = portfolioData[slug];
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   if (!member) {
     notFound();

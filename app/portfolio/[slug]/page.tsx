@@ -51,7 +51,7 @@ const portfolioData: Record<string, any> = {
   },
   'prashansa-doharey': {
     name: 'Prashansa Doharey',
-    role: 'Manager',
+    role: 'Social Media Manager',
     institution: 'Mandsaur University',
     year: 'Second Year',
     image: '/prashansa.jpeg',
@@ -70,7 +70,7 @@ const portfolioData: Record<string, any> = {
   },
   'chirag-gupta': {
     name: 'Chirag Gupta',
-    role: 'Manager',
+    role: 'CTO',
     institution: 'BBDITM',
     year: 'Second Year',
     image: '/cj.jpeg',
@@ -90,7 +90,7 @@ const portfolioData: Record<string, any> = {
   },
   'saiyam-jain': {
     name: 'Saiyam Jain',
-    role: 'Manager',
+    role: 'Recruiter',
     institution: 'BVIMR (IPU)',
     year: 'Second Year',
     image: '/sai.jpeg',
@@ -203,17 +203,17 @@ export default function PortfolioPage({ params }: { params: Promise<{ slug: stri
             key={i}
             className="absolute w-1 h-1 bg-white rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${(i * 7.3) % 100}%`,
+              top: `${(i * 13.7) % 100}%`,
             }}
             animate={{
               opacity: [0.2, 0.8, 0.2],
               scale: [1, 1.5, 1],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: (i % 3) + 2,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: (i % 5) * 0.4,
             }}
           />
         ))}

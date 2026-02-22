@@ -7,6 +7,7 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import GalaxyBackground from './GalaxyBackground';
 
+
 const team = [
   {
     name: 'Rahul Wakhale',
@@ -22,23 +23,23 @@ const team = [
     portfolio: '/portfolio/ayush-shrivastava',
     galaxyColor: '#8B5CF6',
   },
-  {
-    name: 'Prashansa Doharey',
-    role: 'Manager',
-    image: '/prashansa.jpeg',
-    portfolio: '/portfolio/prashansa-doharey',
-    galaxyColor: '#EC4899',
-  },
+  // {
+  //   name: 'Prashansa Doharey',
+  //   role: 'Social Media Manager',
+  //   image: '/prashansa.jpeg',
+  //   portfolio: '/portfolio/prashansa-doharey',
+  //   galaxyColor: '#EC4899',
+  // },
   {
     name: 'Saiyam jain',
-    role: 'Manager',
+    role: 'Recruiter',
     image: '/sai.jpeg',
     portfolio: '/portfolio/saiyam-jain',
     galaxyColor: '#F59E0B',
   },
   {
     name: 'Chirag Gupta',
-    role: 'Manager',
+    role: 'CTO',
     image: '/cj.jpeg',
     portfolio: '/portfolio/chirag-gupta',
     galaxyColor: '#10B981',
@@ -207,7 +208,7 @@ export default function Team() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 ">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
@@ -243,7 +244,8 @@ export default function Team() {
               />
 
               {/* Card */}
-              <div className="relative bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-6 md:p-8 rounded-3xl border-2 border-slate-700/50 overflow-hidden h-full shadow-2xl">
+              
+                <div className="relative bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-6 md:p-8 rounded-3xl border-2 border-slate-700/50 overflow-hidden h-full shadow-2xl">
                 {/* Animated border */}
                 <div
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -428,6 +430,7 @@ export default function Team() {
                   <p className="text-gray-400 text-xs md:text-sm">{}</p>
                 </div>
               </div>
+              
             </motion.div>
           ))}
         </div>
